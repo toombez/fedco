@@ -1,3 +1,3 @@
 run:
 	yarn run build-tailwind
-	python -m flask run
+	python -m flask --debug run
