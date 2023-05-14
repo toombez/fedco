@@ -1,0 +1,5 @@
+# It's build by tailwind
+static/css/main.css
+
+node_modules
+*.log
