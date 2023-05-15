@@ -1,4 +1,4 @@
-{% macro hero_card(top_label, href = None, text_color = "#232123") -%}
+{% macro hero_card(label, href = None, text_color = "#232123") -%}
     <a
         class="block p-6 h-full"
         href={{href}}
@@ -7,8 +7,11 @@
         <article
             class="flex flex-col justify-between h-full"
         >
-            <div style={{"color:" + text_color + ";"}}>
-                {{ top_label }}
+            <div
+                style={{"color:" + text_color + ";"}}
+                class="font-regular text-5xl"
+            >
+                {{ label }}
             </div>
         </article>
     </a>

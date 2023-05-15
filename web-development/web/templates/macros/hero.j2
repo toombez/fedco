@@ -8,10 +8,10 @@
             <ul class="grid grid-cols-6 grid-flow-row auto-rows-fr gap-[1px]">
                 <li class="col-start-1 col-end-3 row-start-1 row-end-3 aspect-square">
                     <a href="" class="border border-white h-full rounded-3xl p-6 flex flex-col justify-between">
-                        <span class="text-white inline-block px-4 py-2 border rounded-3xl w-fit">
-                            Педагог
+                        <span class="text-white inline-block px-4 py-2 border rounded-3xl w-fit font-regular text-5xl">
+                            Педагог/контакты
                         </span>
-                        <span class="self-end text-white text-end">
+                        <span class="self-end text-white text-end font-regular text-2xl">
                             Фамилия Имя Отчество
                         </span>
                     </a>
@@ -33,7 +33,7 @@
                 <li class="col-start-2 col-end-5 row-start-3 row-end-4">
                     {% call hero_card_wrapper.hero_card_wrapper() %}
                         <div class="bg-gradient-to-r from-gray to-white h-full">
-                            {{ hero_card.hero_card('Образовательны модули', '') }}
+                            {{ hero_card.hero_card('Образовательные модули', '') }}
                         </div>
                     {% endcall %}
                 </li>

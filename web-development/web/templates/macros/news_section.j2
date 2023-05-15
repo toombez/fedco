@@ -3,11 +3,11 @@
 {% macro news_section(heading, content, image) %}
     <section>
         {% call container.container() %}
-            <h2 class="mb-6">
+            <h2 class="mb-6 font-headings text-6xl">
                 {{ heading }}
             </h2>
 
-            <div class="clear-both">
+            <div class="clear-both text-2xl font-regular">
                 <img class="float-right w-1/2 rounded-3xl" src={{image}} alt={{heading}}>
                 {{ content }}
             </div>
