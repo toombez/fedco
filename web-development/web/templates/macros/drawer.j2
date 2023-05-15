@@ -1,0 +1,63 @@
+{% macro drawer() %}
+    <aside data-drawer class="hidden z-50 bg-gradient-to-b from-light-black to-green fixed right-0 top-0 h-screen px-4 py-8 w-80">
+        <nav>
+            <ul class="flex flex-col gap-4">
+                <li>
+                    <a class="block text-end hover:bg-gray text-white rounded-3xl border border-gray px-4" href="">
+                        О направлении
+                    </a>
+                </li>
+                <li>
+                    <a class="block text-end hover:bg-gray text-white rounded-3xl border border-gray px-4" href="">
+                        Фотогалерея
+                    </a>
+                </li>
+                <li>
+                    <a class="block text-end hover:bg-gray text-white rounded-3xl border border-gray px-4" href="">
+                        Образовательные модули
+                    </a>
+                </li>
+                <li>
+                    <a class="block text-end hover:bg-gray text-white rounded-3xl border border-gray px-4" href="">
+                        Новости
+                    </a>
+                </li>
+                <li>
+                    <a class="block text-end hover:bg-gray text-white rounded-3xl border border-gray px-4" href="">
+                        Контакты
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <script defer>
+        function initDrawer() {
+            const $drawer = document.querySelector('[data-drawer]')
+            const $drawerToggle = document.querySelector('[data-drawer-toggle]')
+
+            $drawerToggle.addEventListener('click', () => {
+                $drawer.classList.toggle('hidden')
+            })
+
+            document.addEventListener('click', (event) => {
+                if ($drawerToggle.contains(event.target)) {
+                    return
+                }
+
+                if ($drawer.contains(event.target)) {
+                    return
+                }
+
+                $drawer.classList.add('hidden')
+            })
+
+            return {
+                $drawer,
+                $drawerToggle,
+            }
+        }
+
+        initDrawer()
+    </script>
+{% endmacro %}

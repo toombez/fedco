@@ -3,14 +3,14 @@
 {% import './macros/icon.j2' as icons %}
 
 {% macro header(with_hero = false) -%}
-    <header class="group bg-gradient-to-r from-black to-light-black">
+    <header class="sticky top-0 z-40 group bg-gradient-to-r from-black to-light-black">
         {% call container.container() %}
             <div class="flex justify-between">
                 <a href="#" class="text-white">
                     IT-квантум (web-разработка)
                 </a>
 
-                <button class="w-6">
+                <button class="w-6" data-drawer-toggle>
                     {{ icons.icon('menu', '#EEEEEE') }}
                 </button>
             </div>

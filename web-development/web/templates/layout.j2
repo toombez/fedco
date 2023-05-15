@@ -1,6 +1,7 @@
 {% import './macros/container.j2' as container %}
 {% import './macros/footer.j2' as footer %}
 {% import './macros/header.j2' as header %}
+{% import './macros/drawer.j2' as drawer %}
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -17,5 +18,7 @@
         {% block body %} {% endblock %}
     </main>
     {{ footer.footer() }}
+
+    {{ drawer.drawer() }}
 </body>
 </html>
