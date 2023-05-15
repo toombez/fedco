@@ -1,8 +1,23 @@
 from dotenv import load_dotenv
-from aiogram import Bot, Dispatcher, executor, types, utils
+from aiogram import Bot, Dispatcher, executor, types, filters
 import os
+from itertools import cycle
 
 load_dotenv()
+
+news = [
+    {
+        'label': 'lorem1',
+        'content': 'Lorem ipsum dolor sit amet consectetur. Urna pharetra libero nunc id sed pulvinar ipsum porttitor at. Ipsum ultricies orci velit senectus a gravida tellus pellentesque. Lectus leo curabitur odio adipiscing libero. Mauris vestibulum non porta eu pellentesque. Justo facilisis egestas ac eget. Pulvinar aliquam viverra nulla pellentesque tortor etiam lorem. Arcu sed suspendisse risus eu magnis eu urna fermentum arcu. Nunc ac tellus pretium mauris urna. Ullamcorper dignissim odio eu malesuada diam morbi morbi curabitur. Blandit morbi sed elit turpis nulla lectus libero a odio. Senectus ultricies sagittis pharetra nullam scelerisque a gravida aliquam vitae. Ullamcorper imperdiet felis at lorem mattis quam quis. Amet condimentum placerat tempor turpis eget elit ligula. Nullam nunc vitae nulla pharetra. Odio rhoncus nullam at vitae auctor egestas arcu tellus. Risus nam iaculis semper pulvinar sed. Turpis suspendisse odio elementum vitae vitae ultrices risus risus tempus. Ut quam nibh pellentesque odio tincidunt viverra pellentesque posuere.',
+        'image': 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80'
+    },
+    {
+        'label': 'lorem2',
+        'content': 'Lorem ipsum dolor sit amet consectetur. Urna pharetra libero nunc id sed pulvinar ipsum porttitor at. Ipsum ultricies orci velit senectus a gravida tellus pellentesque. Lectus leo curabitur odio adipiscing libero. Mauris vestibulum non porta eu pellentesque. Justo facilisis egestas ac eget. Pulvinar aliquam viverra nulla pellentesque tortor etiam lorem. Arcu sed suspendisse risus eu magnis eu urna fermentum arcu. Nunc ac tellus pretium mauris urna. Ullamcorper dignissim odio eu malesuada diam morbi morbi curabitur. Blandit morbi sed elit turpis nulla lectus libero a odio. Senectus ultricies sagittis pharetra nullam scelerisque a gravida aliquam vitae. Ullamcorper imperdiet felis at lorem mattis quam quis. Amet condimentum placerat tempor turpis eget elit ligula. Nullam nunc vitae nulla pharetra. Odio rhoncus nullam at vitae auctor egestas arcu tellus. Risus nam iaculis semper pulvinar sed. Turpis suspendisse odio elementum vitae vitae ultrices risus risus tempus. Ut quam nibh pellentesque odio tincidunt viverra pellentesque posuere.',
+        'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSULBmlrPlwiurWT3S57xXfVh_PPlvsPFsfZJqEayr4&s'
+    },
+]
+cycle_news = cycle(news)
 
 TOKEN = os.environ['TOKEN']
 
@@ -37,6 +52,48 @@ async def contacts_command(message: types.Message):
 
 @dp.message_handler(commands=['news'])
 async def news_command(message: types.Message):
+    news = next(cycle_news)
+
+    markup = types.InlineKeyboardMarkup(2, [
+        [
+            types.InlineKeyboardButton(
+                'следующая новость',
+                callback_data='next_news'
+            )
+        ]
+    ])
+
+    await bot.send_photo(
+        photo=news['image'],
+        caption=f"""<b>{news['label']}</b>
+{news['content'][:500] + ' <a href="localhost:5000/news">...</a>'}
+""",
+        parse_mode='html',
+        reply_markup=markup,
+        chat_id=message.from_id,
+    )
+    return
+
+@dp.callback_query_handler(lambda c: c.data == 'next_news')
+async def next_news_button(query: types.CallbackQuery):
+    news = next(cycle_news)
+
+    message = query.message
+
+    await message.edit_media(
+        types.InputMediaPhoto(
+            news['image'],
+            f"""<b>{news['label']}</b>
+{news['content'][:500] + ' <a href="localhost:5000/news">...</a>'}
+""",
+            parse_mode='html'
+        ),
+        reply_markup=types.InlineKeyboardMarkup(1, [
+            [
+                types.InlineKeyboardButton('следующая новость', callback_data='next_news')
+            ]
+        ])
+    )
     return
 
 @dp.message_handler(commands=['about'])
