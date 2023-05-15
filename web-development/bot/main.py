@@ -3,10 +3,30 @@ from aiogram import Bot, Dispatcher, executor, types
 import os
 
 load_dotenv()
+
 TOKEN = os.environ['TOKEN']
 
 bot = Bot(TOKEN)
-
 dp = Dispatcher(bot)
+
+@dp.message_handler(commands=['help'])
+async def help_command(message: types.Message):
+    return
+
+@dp.message_handler(commands=['contacts'])
+async def contacts_command(message: types.Message):
+    return
+
+@dp.message_handler(commands=['news'])
+async def news_command(message: types.Message):
+    return
+
+@dp.message_handler(commands=['about'])
+async def about_command(message: types.Message):
+    return
+
+@dp.message_handler(commands=['modules'])
+async def modules_command(message: types.Message):
+    return
 
 executor.start_polling(dp)
