@@ -41,6 +41,23 @@ async def news_command(message: types.Message):
 
 @dp.message_handler(commands=['about'])
 async def about_command(message: types.Message):
+    reply_message = """IT-квантум (web-разработка)
+Web-разработка
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat impedit provident sequi! Odit, enim rem!
+
+Чему научатся:
+1. Основы html css и js
+2. Frontend разработку
+3. Backend разработку
+4. Современные инструменты
+
+Проекты
+1. Discord и telegram боты
+2. Сайт с использованием современных библиотек и фреймворках
+3. Сайт с применением 3D-графики
+    """
+
+    await bot.send_message(message.from_id, reply_message, parse_mode='html')
     return
 
 @dp.message_handler(commands=['modules'])
