@@ -1,8 +1,10 @@
 {% extends "layout.j2" %}
 {% import './macros/hero.j2' as hero %}
 {% import './macros/about_section.j2' as about_section %}
+{% import './macros/photos_section.j2' as photos_section %}
 
 {% block body %}
-{{ hero.hero() }}
-{{ about_section.about_section() }}
+    {{ hero.hero() }}
+    {{ about_section.about_section() }}
+    {{ photos_section.photos_section() }}
 {% endblock %}

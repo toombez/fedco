@@ -1,0 +1,26 @@
+{% import './macros/container.j2' as container %}
+
+{% macro photos_section() %}
+    <section>
+        {% call container.container() %}
+            <h2 class="mb-10">
+                Фотогалерея
+            </h2>
+
+            <ul class="grid grid-cols-3 gap-[1px]">
+                <li class="aspect-square">
+                    <img class="object-cover w-full h-full" src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=" alt="">
+                </li>
+                <li class="aspect-square">
+                    <img class="object-cover w-full h-full" src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=" alt="">
+                </li>
+                <li class="aspect-square">
+                    <img class="object-cover w-full h-full" src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=" alt="">
+                </li>
+                <li class="aspect-square">
+                    <img class="object-cover w-full h-full" src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=" alt="">
+                </li>
+            </ul>
+        {% endcall %}
+    </section>
+{% endmacro %}
