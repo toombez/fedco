@@ -1,5 +1,8 @@
 {% extends "layout.j2" %}
+{% import './macros/hero.j2' as hero %}
+{% import './macros/about_section.j2' as about_section %}
 
 {% block body %}
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus animi tempore mollitia magnam sunt illo tempora et, placeat quos labore voluptatum rem earum veritatis impedit neque, atque similique deserunt dicta.
+{{ hero.hero() }}
+{{ about_section.about_section() }}
 {% endblock %}
