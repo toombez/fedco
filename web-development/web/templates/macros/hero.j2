@@ -3,11 +3,11 @@
 {% import './macros/container.j2' as container %}
 
 {% macro hero() %}
-    <div class="bg-gradient-to-r from-black to-light-black pt-8 pb-16 rounded-b-[32px]">
+    <section id="hero" class="bg-gradient-to-r from-black to-light-black pt-8 pb-16 rounded-b-[32px]">
         {% call container.container() %}
             <ul class="grid grid-cols-6 grid-flow-row auto-rows-fr gap-[1px]">
                 <li class="col-start-1 col-end-3 row-start-1 row-end-3 aspect-square">
-                    <a href="" class="border border-white h-full rounded-3xl p-6 flex flex-col justify-between">
+                    <a href="/#footer" class="border border-white h-full rounded-3xl p-6 flex flex-col justify-between">
                         <span class="text-white inline-block px-4 py-2 border rounded-3xl w-fit font-regular text-5xl">
                             Педагог/контакты
                         </span>
@@ -19,32 +19,32 @@
                 <li class="col-start-3 col-end-6 row-start-1 row-end-2">
                     {% call hero_card_wrapper.hero_card_wrapper() %}
                         <div class="bg-gradient-to-r from-purple to-gray h-full">
-                            {{ hero_card.hero_card('О направлении', 'https://google.com', '#232123') }}
+                            {{ hero_card.hero_card('О направлении', '/#about', '#232123') }}
                         </div>
                     {% endcall %}
                 </li>
                 <li class="col-start-3 col-end-7 row-start-2 row-end-3">
                     {% call hero_card_wrapper.hero_card_wrapper() %}
                         <div class="bg-gradient-to-r from-green to-yellow h-full">
-                            {{ hero_card.hero_card('Фотогалерея', 'https://google.com', '#EEEEEE') }}
+                            {{ hero_card.hero_card('Фотогалерея', '/#photos', '#EEEEEE') }}
                         </div>
                     {% endcall %}
                 </li>
                 <li class="col-start-2 col-end-5 row-start-3 row-end-4">
                     {% call hero_card_wrapper.hero_card_wrapper() %}
                         <div class="bg-gradient-to-r from-gray to-white h-full">
-                            {{ hero_card.hero_card('Образовательные модули', '') }}
+                            {{ hero_card.hero_card('Образовательные модули', '/#modules') }}
                         </div>
                     {% endcall %}
                 </li>
                 <li class="col-start-5 col-end-7 row-start-3 row-end-4">
                     {% call hero_card_wrapper.hero_card_wrapper() %}
                         <div class="bg-gradient-to-r from-light-black to-yellow h-full">
-                            {{ hero_card.hero_card('Новости', '', '#EEEEEE') }}
+                            {{ hero_card.hero_card('Новости', '/news', '#EEEEEE') }}
                         </div>
                     {% endcall %}
                 </li>
             </ul>
         {% endcall %}
-    </div>
+    </section>
 {% endmacro %}

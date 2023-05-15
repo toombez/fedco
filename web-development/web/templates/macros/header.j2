@@ -3,10 +3,10 @@
 {% import './macros/icon.j2' as icons %}
 
 {% macro header(with_hero = false) -%}
-    <header class="sticky top-0 z-40 group bg-gradient-to-r from-black to-light-black">
+    <header id="header" class="sticky top-0 z-40 group bg-gradient-to-r from-black to-light-black">
         {% call container.container() %}
             <div class="flex justify-between">
-                <a href="#" class="text-white font-headings text-5xl">
+                <a href="/" class="text-white font-headings text-5xl">
                     IT-квантум (web-разработка)
                 </a>
 
