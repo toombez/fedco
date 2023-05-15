@@ -4,6 +4,7 @@ module.exports = {
     content: ["./templates/**/*.{html,htm,j2}"],
     theme: {
         colors: {
+            transparent: 'transparent',
             white: '#EEEEEE',
             gray: '#ABB9B9',
             black: '#232123',
