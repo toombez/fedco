@@ -11,6 +11,15 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['help'])
 async def help_command(message: types.Message):
+    reply_message = """Доступные команды:
+/help — доступные команды
+/contacts — контакты
+/news — новости
+/about — информация о направлении
+/modules — модули направления
+    """
+
+    await message.reply(reply_message)
     return
 
 @dp.message_handler(commands=['contacts'])
