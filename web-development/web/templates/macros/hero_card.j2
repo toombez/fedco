@@ -1,0 +1,22 @@
+{% macro hero_card(top_label, bottom_label = None, href = None, color = '#AAB8B8', text_color = "#232123") -%}
+    <a
+        class="block p-6 rounded-3xl first:row-start-1 first:row-end-3"
+        href={{href}}
+        target="_blank"
+        style={{"background-color:" + color + ";"}}
+    >
+        <article
+            class="flex flex-col justify-between h-full"
+        >
+            <div style={{"color:" + text_color + ";"}}>
+                {{ top_label }}
+            </div>
+
+            {% if bottom_label %}
+                <div class="text-right" style={{"color:" + text_color + ";"}}>
+                    {{ bottom_label }}
+                </div>
+            {% endif %}
+        </article>
+    </a>
+{%- endmacro %}
