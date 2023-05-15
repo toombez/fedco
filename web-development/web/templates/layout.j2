@@ -1,5 +1,6 @@
 {% import './macros/container.j2' as container %}
 {% import './macros/footer.j2' as footer %}
+{% import './macros/header.j2' as header %}
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -10,17 +11,8 @@
     <title>IT-квантум web-разработка</title>
     <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
 </head>
-<body class="grid grid-rows-[auto_1fr_auto] h-screen">
-    <header class="bg-gradient-to-tr from-black to-light-black">
-        {% call container.container() %}
-            <a href="#" class="text-white">
-                IT-квантум (web-разработка)
-            </a>
-
-            <div class="bg-yellow">
-            </div>
-        {% endcall %}
-    </header>
+<body>
+    {{ header.header(url_for(request.endpoint) == '/') }}
     <main class="">
         {% block body %} {% endblock %}
     </main>

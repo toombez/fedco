@@ -1,0 +1,19 @@
+{% import './macros/container.j2' as container %}
+{% import './macros/hero_card.j2' as hero_card %}
+{% import './macros/icon.j2' as icons %}
+
+{% macro header(with_hero = false) -%}
+    <header class="group bg-gradient-to-r from-black to-light-black">
+        {% call container.container() %}
+            <div class="flex justify-between">
+                <a href="#" class="text-white">
+                    IT-квантум (web-разработка)
+                </a>
+
+                <button class="w-6">
+                    {{ icons.icon('menu', '#EEEEEE') }}
+                </button>
+            </div>
+        {% endcall %}
+    </header>
+{%- endmacro %}
