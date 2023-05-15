@@ -1,0 +1,10 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  },
+  "scripts": {
+    "build-tailwind": "npx tailwindcss -c ./tailwind.config.js -i ./static/src/style.css -o ./static/css/main.css --watch"
+  }
+}

@@ -1,0 +1,47 @@
+{% macro theme(name, image, skills, materials) %}
+    <article class="rounded-3xl overflow-hidden relative z-0">
+        <img class="object-cover min-h-full w-1/2 absolute left-0 top-0 z-10" src={{image}} alt={{name}}>
+
+        <div class="grid grid-cols-5 p-6 bg-gradient-to-r from-transparent via-light-black to-green z-20 relative">
+            <div class="col-start-3 col-end-6">
+                <h3 class="text-white mb-4 font-headings text-3xl">
+                    {{ name }}
+                </h3>
+
+                <div class="grid grid-cols-2">
+                    <div>
+                        <span class="text-white font-regular text-base">
+                            чему научится:
+                        </span>
+                        <div>
+                            <ol>
+                                {% for skill in skills %}
+                                    <li class="text-white font-regular text-base">
+                                        {{ skill }}
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="text-white font-regular text-base">
+                            Дополнительные материалы:
+                        </span>
+                        <div>
+                            <ol>
+                                {% for material in materials %}
+                                    <li>
+                                        <a href={{material["href"]}} target="_blank" class="text-white font-regular text-base underline">
+                                            {{ material['label'] }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endmacro %}

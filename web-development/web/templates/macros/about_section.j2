@@ -1,0 +1,48 @@
+{% import './macros/container.j2' as container %}
+
+{% macro about_section() %}
+    <section id="about">
+        {% call container.container() %}
+            <h2 class="mb-10 font-headings text-6xl text-black">
+                О направлении
+            </h2>
+
+            <div class="grid grid-cols-3 gap-[1px]">
+                <article class="aspect-square border border-green rounded-3xl p-3">
+                    <h3 class="mb-6 text-green font-regular text-4xl">
+                        Чему научатся
+                    </h3>
+
+                    <ol class="list-decimal flex flex-col gap-1">
+                        <li class="font-regular text-xl text-green border border-green list-inside w-fit px-3 rounded-3xl">Основы html css и js</li>
+                        <li class="font-regular text-xl text-green border border-green list-inside w-fit px-3 rounded-3xl">Frontend разработку</li>
+                        <li class="font-regular text-xl text-green border border-green list-inside w-fit px-3 rounded-3xl">Backend разработку</li>
+                        <li class="font-regular text-xl text-green border border-green list-inside w-fit px-3 rounded-3xl">Современные инструменты</li>
+                    </ol>
+                </article>
+
+                <article class="aspect-square bg-yellow rounded-3xl p-3">
+                    <h3 class="mb-5 font-regular text-4xl text-black">
+                        Web-разработка
+                    </h3>
+
+                    <span class="text text-black font-regular text-xl">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat impedit provident sequi! Odit, enim rem!
+                    </span>
+                </article>
+
+                <article class="aspect-square bg-gradient-to-tr from-light-black to-green rounded-3xl p-3">
+                    <h3 class="text-white mb-5 text-4xl font-regular">
+                        Проекты
+                    </h3>
+
+                    <ol class="list-decimal list-inside">
+                        <li class="font-regular text-xl text-white">Discord и telegram боты</li>
+                        <li class="font-regular text-xl text-white">Сайт с использованием современных библиотек и фреймворках</li>
+                        <li class="font-regular text-xl text-white">Сайт с применением 3D-графики</li>
+                    </ol>
+                </article>
+            </div>
+        {% endcall %}
+    </section>
+{% endmacro %}

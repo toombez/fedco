@@ -1,0 +1,19 @@
+{% import './macros/icon.j2' as icons %}
+
+{% macro contact_card(service, label, href, color) -%}
+    <a
+        href={{href}}
+        class="flex items-end flex-col gap-10 rounded-2xl p-4"
+        target="_blank"
+        style={{"background-color:" + color + ";"}}
+    >
+        <div class="p-3 bg-white w-fit rounded-full">
+            <div class="w-6 h-6">
+                {{ icons.icon(service, color) }}
+            </div>
+        </div>
+        <span class="text-white text-2xl font-regular text-end">
+            {{ label }}
+        </span>
+    </a>
+{%- endmacro %}
