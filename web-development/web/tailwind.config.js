@@ -3,7 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     mode: 'jit',
-    content: ["./templates/**/*.{html,htm,j2}"],
+    content: ["./web/templates/**/*.{html,htm,j2}"],
     theme: {
         fontFamily: {
             headings: ['Montserrat', ...defaultTheme.fontFamily.sans],

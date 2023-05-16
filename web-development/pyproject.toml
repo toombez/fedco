@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "web-development"
+version = "1.0.0"
+description = "web development course"
+authors = ["Timur <timurtokaev.toombez@gmail.com>"]
+readme = "README.md"
+packages = [{include = "web_development"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-dotenv = "^1.0.0"
+web = {path = "./web/", develop = true}
+bot = {path = "./bot/", develop = true}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
