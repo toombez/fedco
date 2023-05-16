@@ -9,8 +9,8 @@ packages = [{include = "web_development"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 python-dotenv = "^1.0.0"
-web = {path = "./web/"}
-bot = {path = "./bot/"}
+web = {path = "./web/", develop = true}
+bot = {path = "./bot/", develop = true}
 
 
 [build-system]
