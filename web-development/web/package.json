@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "devDependencies": {
     "tailwindcss": "^3.3.2",
+    "tsup": "^6.7.0",
     "typescript": "^5.0.4"
   },
   "scripts": {
+    "build-ts": "tsup ./web/ts/index.ts",
     "build-tailwind": "tailwindcss -c ./tailwind.config.js -i ./web/styles/style.css -o ./web/static/css/main.css"
   }
 }
