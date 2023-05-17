@@ -219,7 +219,7 @@ aiogram = "^2.23.1"
 
 [package.source]
 type = "directory"
-url = "bot"
+url = "apps/bot"
 
 [[package]]
 name = "certifi"
@@ -692,7 +692,7 @@ Flask = "^2.3.2"
 
 [package.source]
 type = "directory"
-url = "web"
+url = "apps/web"
 
 [[package]]
 name = "werkzeug"
@@ -803,4 +803,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "22e5d3f80c6cb60fb5bf66a29f95e3fc37a63b549943e0a90024238e6e903196"
+content-hash = "5269080713a6592b40807630469eae4e6a462a6ff5c582c19d598ab61802048a"
