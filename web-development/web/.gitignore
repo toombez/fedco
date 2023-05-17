@@ -1,7 +1,7 @@
 # It's build by tailwind
 web/static/css/main.css
 # It's build by tsup
-web/static/index.js
+web/static/js/index.js
 
 node_modules
 *.log
