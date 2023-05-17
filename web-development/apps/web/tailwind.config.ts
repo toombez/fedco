@@ -1,7 +1,7 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+import { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
     mode: 'jit',
     content: ["./web/templates/**/*.{html,htm,j2}"],
     theme: {
@@ -38,4 +38,4 @@ module.exports = {
         },
     },
     plugins: [],
-  }
+} as Config
