@@ -1,12 +1,8 @@
-{% extends "layout.j2" %}
-{% import './macros/hero.j2' as hero %}
-{% import './macros/about_section.j2' as about_section %}
-{% import './macros/photos_section.j2' as photos_section %}
-{% import './macros/modules_section.j2' as modules_section %}
+{% extends "layouts/base.j2" %}
 
 {% block body %}
-    {{ hero.hero() }}
-    {{ about_section.about_section() }}
-    {{ photos_section.photos_section() }}
-    {{ modules_section.modules_section() }}
+    {% include 'sections/hero.j2' %}
+    {% include 'sections/about.j2' %}
+    {% include 'sections/galery.j2' %}
+    {% include 'sections/modules.j2' %}
 {% endblock %}

@@ -1,15 +1,10 @@
-{% import './macros/container.j2' as container %}
-{% import './macros/footer.j2' as footer %}
-{% import './macros/header.j2' as header %}
-{% import './macros/drawer.j2' as drawer %}
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT-квантум web-разработка</title>
+    <title>{% block title %}IT-квантум web-разработка{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,12 +12,13 @@
     <script defer src="{{ url_for('static', filename='js/index.js') }}"></script>
 </head>
 <body class="bg-white">
-    {{ header.header(url_for(request.endpoint) == '/') }}
+    {% include 'components/drawer.j2' %}
+    {% include 'sections/header.j2' %}
+
     <main class="">
         {% block body %} {% endblock %}
     </main>
-    {{ footer.footer() }}
 
-    {{ drawer.drawer() }}
+    {% include 'sections/footer.j2' %}
 </body>
 </html>

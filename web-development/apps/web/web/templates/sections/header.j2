@@ -1,0 +1,31 @@
+{% import './components/container.j2' as container %}
+{% import './components/icon.j2' as icon %}
+
+{% set title = {
+    'href': '/#',
+    'label': 'IT-квантум (web-разработка)',
+} %}
+
+<header
+    class="sticky top-0 z-40 group bg-gradient-to-r from-black to-light-black"
+    id="header"
+>
+    {% call container.container() %}
+        <div
+            class="flex justify-between"
+        >
+            <a
+                href="{{ title['href'] }}"
+                class="text-white font-headings text-5xl"
+            >
+                {{ title['label'] }}
+            </a>
+
+            <button
+                data-drawer-toggle
+            >
+                {{ icon.icon('menu', class="text-white w-6") }}
+            </button>
+        </div>
+    {% endcall %}
+</header>

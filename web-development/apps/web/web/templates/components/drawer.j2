@@ -1,0 +1,33 @@
+{% macro drawer_link(label, href = '') %}
+    <a
+        class="font-regular text-2xl block text-end hover:bg-gray text-white rounded-3xl border border-gray px-4"
+        href="{{href}}"
+    >
+        {{ label }}
+    </a>
+{% endmacro %}
+
+{% set navigation = [
+    { 'label': 'О направлении', 'href': '/#about' },
+    { 'label': 'Фотогалерея', 'href': '/#galery' },
+    { 'label': 'Образовательные модули', 'href': '/#modules' },
+    { 'label': 'Новости', 'href': '/news' },
+    { 'label': 'Контакты', 'href': '/#footer' },
+] %}
+
+<aside
+    data-drawer
+    class="hidden z-50 bg-gradient-to-b from-light-black to-green fixed right-0 top-0 h-screen px-4 py-8 w-80"
+>
+    <nav>
+        <ul
+            class="flex flex-col gap-4"
+        >
+            {% for link in navigation %}
+                <li>
+                    {{ drawer_link(link['label'], link['href']) }}
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</aside>
