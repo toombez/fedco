@@ -1,0 +1,23 @@
+{% import 'components/section.j2' as section %}
+
+{% set photos = [
+    'https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8='
+] %}
+
+{% call section.section('Фотогалерея', 'galery') %}
+    <ul
+        class="grid grid-cols-3 gap-[1px]"
+    >
+        {% for _ in range(7) %}
+            <li
+                class="aspect-square"
+            >
+                <img
+                    class="object-cover w-full h-full"
+                    src="{{ photos[0] }}"
+                    alt=""
+                >
+            </li>
+        {% endfor %}
+    </ul>
+{% endcall %}
