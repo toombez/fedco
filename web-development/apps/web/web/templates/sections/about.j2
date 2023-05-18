@@ -1,0 +1,88 @@
+{% import './components/section.j2' as section %}
+
+{% macro about_skills_card(skills = []) %}
+    <article
+        class="aspect-square border border-green rounded-3xl p-3"
+    >
+        <h3
+            class="mb-6 text-green font-regular text-4xl"4
+        >
+            Чему научатся
+        </h3>
+
+        <ol
+            class="list-decimal flex flex-col gap-1"
+        >
+            {% for skill in skills %}
+                <li
+                    class="font-regular text-xl text-green border border-green list-inside w-fit px-3 rounded-3xl"
+                >
+                    {{ skill }}
+                </li>
+            {% endfor %}
+        </ol>
+    </article>
+{% endmacro %}
+
+{% macro about_description_card(description = '') %}
+    <article
+        class="aspect-square bg-yellow rounded-3xl p-3"
+    >
+        <h3
+            class="mb-5 font-regular text-4xl text-black"
+        >
+            Web-разработка
+        </h3>
+
+        <span
+            class="text text-black font-regular text-xl"
+        >
+            {{ description }}
+        </span>
+    </article>
+{% endmacro %}
+
+{% macro about_projects_card(projects = []) %}
+    <article
+        class="aspect-square bg-gradient-to-tr from-light-black to-green rounded-3xl p-3"
+    >
+        <h3
+            class="text-white mb-5 text-4xl font-regular"
+        >
+            Проекты
+        </h3>
+
+        <ol
+            class="list-decimal list-inside"
+        >
+            {% for project in projects %}
+                <li
+                    class="font-regular text-xl text-white"
+                >
+                    {{ project }}
+                </li>
+            {% endfor %}
+        </ol>
+    </article>
+{% endmacro %}
+
+{% call section.section('О направлении', 'about') %}
+    <div class="grid grid-cols-3 gap-[1px]">
+        {{ about_skills_card([
+            'Основы html css и js',
+            'Frontend разработке',
+            'Backend разработке',
+            'Современные инструменты',
+        ]) }}
+
+        {{ about_description_card(
+            'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat impedit provident sequi! Odit, enim rem!',
+        ) }}
+
+        {{ about_projects_card([
+            'Discord и telegram боты',
+            'Сайт с использованием современных библиотек и фреймворках',
+            'Сайт с применением 3D-графики',
+        ]) }}
+    </div>
+{% endcall %}
