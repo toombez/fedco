@@ -27,14 +27,16 @@ export default {
                 email: 'colors.yellow',
             },
         },
-        extend: {
-            container: {
-                center: true,
-                padding: '0.75rem',
-                screens: {
-                    'DEFAULT': '1024px',
-                }
-            }
+        screens: {
+            'mobile': '640px',
+            'desktop': '1024px',
+        },
+        container: {
+            center: true,
+            padding: {
+                mobile: '0.5rem',
+                desktop: '0.75rem',
+            },
         },
     },
     plugins: [],
