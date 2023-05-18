@@ -1,5 +1,5 @@
 {% import './components/container.j2' as container %}
-{% import './macros/icon.j2' as icons %}
+{% import './components/icon.j2' as icon %}
 
 {% set title = {
     'href': '/#',
@@ -15,17 +15,16 @@
             class="flex justify-between"
         >
             <a
-                href="{{title['href']}}"
+                href="{{ title['href'] }}"
                 class="text-white font-headings text-5xl"
             >
                 {{ title['label'] }}
             </a>
 
             <button
-                class="w-6"
                 data-drawer-toggle
             >
-                {{ icons.icon('menu', '#EEEEEE') }}
+                {{ icon.icon('menu', class="text-white w-6") }}
             </button>
         </div>
     {% endcall %}
