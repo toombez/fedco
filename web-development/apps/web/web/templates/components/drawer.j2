@@ -3,6 +3,7 @@
 {% macro drawer_link(label, href = '') %}
     <a
         href="{{href}}"
+        data-drawer-link
     >
         {{ typography.raleway_sub_heading(
             label,

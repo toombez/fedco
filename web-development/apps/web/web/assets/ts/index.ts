@@ -1,6 +1,13 @@
 function initDrawer() {
     const $drawer = document.querySelector('[data-drawer]')
     const $drawerToggle = document.querySelector('[data-drawer-toggle]')
+    const $drawerLinks = document.querySelectorAll('[data-drawer-link]')
+
+    $drawerLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            $drawer?.classList.add('hidden')
+        })
+    })
 
     if (!$drawer) {
         throw new Error('cannot find drawer')
