@@ -6,7 +6,7 @@
 
 {% call section.section('Фотогалерея', 'galery') %}
     <ul
-        class="grid grid-cols-3 gap-[1px]"
+        class="grid desktop:grid-cols-3 gap-1 desktop:gap-[1px]"
     >
         {% for _ in range(7) %}
             <li
@@ -15,7 +15,6 @@
                 <img
                     class="object-cover w-full h-full"
                     src="{{ photos[0] }}"
-                    alt=""
                 >
             </li>
         {% endfor %}
