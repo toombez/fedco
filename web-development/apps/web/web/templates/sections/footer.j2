@@ -1,18 +1,20 @@
 {% import './components/container.j2' as container %}
+{% import './components/typography.j2' as typography %}
 {% import './components/contact_card.j2' as contact_card %}
 
 <footer
     id="footer"
     class="bg-black rounded-t-3xl"
 >
-    {% call container.container() %}
-        <h2
-            class="mb-10 text-white font-headings text-6xl"
-        >
-            Контакты
-        </h2>
+    {% call container.footer_container() %}
+
+        {{ typography.montserrat_heading(
+            'Контакты',
+            'h2',
+            class = "text-white mb-6 desktop:mb-10"
+        ) }}
         <div
-            class="mb-12 grid grid-flow-row grid-cols-3 gap-[1px]"
+            class="grid grid-flow-row desktop:grid-cols-3 gap-1 desktop:gap-[1px]"
         >
             {{ contact_card.contact_card('vk', '@username', 'https://vk.com', '#0077FF') }}
             {{ contact_card.contact_card('discord', '@username', 'https://discord.com', '#5566E4') }}
@@ -24,13 +26,13 @@
         </div>
 
         <hr
-            class="border-white mt-0 mb-2"
+            class="border-white mt-4 desktop:mt-8 mb-2"
         >
 
-        <div
-            class="text-center text-white font-regular text-2xl"
-        >
-            {{ now.year }} Волжский
-        </div>
+        {% set copyright = now.year|string + " г. Волжский" %}
+        {{ typography.raleway_sub_heading(
+            copyright,
+            class = "text-center text-white block"
+        ) }}
     {% endcall %}
 </footer>
