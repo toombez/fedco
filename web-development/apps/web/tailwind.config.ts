@@ -5,9 +5,18 @@ export default {
     mode: 'jit',
     content: ["./web/templates/**/*.{html,htm,j2}"],
     theme: {
+        fontSize: {
+            md: '1rem',
+            '2md': '1.25rem',
+            lg: '2rem',
+            '2lg': '2.25rem',
+            xl: '2.625rem',
+            '2xl': '3.5rem',
+
+        },
         fontFamily: {
-            headings: ['Montserrat', ...defaultTheme.fontFamily.sans],
-            regular: ['Raleway', ...defaultTheme.fontFamily.mono],
+            montserrat: ['Montserrat', ...defaultTheme.fontFamily.sans],
+            raleway: ['Raleway', ...defaultTheme.fontFamily.mono],
         },
         colors: {
             transparent: 'transparent',
