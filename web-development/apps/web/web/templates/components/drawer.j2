@@ -1,23 +1,29 @@
+{% import 'components/typography.j2' as typography %}
+
 {% macro drawer_link(label, href = '') %}
     <a
-        class="font-regular text-2xl block text-end hover:bg-gray text-white rounded-3xl border border-gray px-4"
         href="{{href}}"
+        data-drawer-link
     >
-        {{ label }}
+        {{ typography.raleway_sub_heading(
+            label,
+            class = "block text-end hover:bg-gray text-white rounded-full border border-gray px-8"
+        ) }}
     </a>
 {% endmacro %}
 
 {% set navigation = [
+    { 'label': 'Главная', 'href': '/' },
     { 'label': 'О направлении', 'href': '/#about' },
     { 'label': 'Фотогалерея', 'href': '/#galery' },
     { 'label': 'Образовательные модули', 'href': '/#modules' },
     { 'label': 'Новости', 'href': '/news' },
-    { 'label': 'Контакты', 'href': '/#footer' },
+    { 'label': 'Контакты', 'href': '#footer' },
 ] %}
 
 <aside
     data-drawer
-    class="hidden z-50 bg-gradient-to-b from-light-black to-green fixed right-0 top-0 h-screen px-4 py-8 w-80"
+    class="hidden z-50 bg-gradient-to-b from-light-black to-green fixed right-0 top-0 h-screen px-4 py-8 max-w-sm desktop:max-w-lg"
 >
     <nav>
         <ul

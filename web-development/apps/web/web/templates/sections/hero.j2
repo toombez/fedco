@@ -3,14 +3,14 @@
 
 <section
     id="hero"
-    class="bg-gradient-to-r from-black to-light-black pt-8 pb-16 rounded-b-[32px]"
+    class="bg-gradient-to-r from-black to-light-black rounded-b-[32px]"
 >
-    {% call container.container() %}
+    {% call container.hero_container() %}
         <ul
-            class="grid grid-cols-6 grid-flow-row auto-rows-fr gap-[1px] items-stretch"
+            class="grid grid-cols-1 grid-flow-row desktop:grid-cols-6 desktop:auto-rows-fr gap-2 desktop:gap-[1px] items-stretch"
         >
             <li
-                class="col-start-1 col-end-3 row-start-1 row-end-3"
+                class="desktop:col-start-1 desktop:col-end-3 desktop:row-start-1 desktop:row-end-3"
             >
                 {% call hero_card.hero_card(
                     '/#footer',
@@ -19,11 +19,12 @@
                     {{ hero_card.hero_card_two_line_content(
                         'Педагог/контакты',
                         'Фамилия Имя Отчество',
+                        class="text-white"
                     ) }}
                 {% endcall %}
             </li>
             <li
-                class="col-start-3 col-end-6 row-start-1 row-end-2"
+                class="desktop:col-start-3 desktop:col-end-6 desktop:row-start-1"
             >
                 {% call hero_card.hero_card(
                     '/#about',
@@ -36,7 +37,20 @@
                 {% endcall %}
             </li>
             <li
-                class="col-start-3 col-end-7 row-start-2 row-end-3"
+                class="desktop:col-start-4 desktop:col-end-7 desktop:row-start-2"
+            >
+                {% call hero_card.hero_card(
+                    '/news',
+                    class="bg-gradient-to-r from-light-black to-yellow"
+                ) %}
+                    {{ hero_card.hero_card_one_line_content(
+                        'Новости',
+                        class="text-white"
+                    ) }}
+                {% endcall %}
+            </li>
+            <li
+                class="desktop:col-start-1 desktop:col-end-5 desktop:row-start-3"
             >
                 {% call hero_card.hero_card(
                     '/#galery',
@@ -49,7 +63,7 @@
                 {% endcall %}
             </li>
             <li
-                class="col-start-2 col-end-5 row-start-3 row-end-4"
+                class="desktop:col-start-2 desktop:col-end-7 desktop:row-start-4"
             >
                 {% call hero_card.hero_card(
                     '/#modules',
@@ -58,19 +72,6 @@
                     {{ hero_card.hero_card_one_line_content(
                         'Образовательны модули',
                         class="text-black"
-                    ) }}
-                {% endcall %}
-            </li>
-            <li
-                class="col-start-5 col-end-7 row-start-3 row-end-4"
-            >
-                {% call hero_card.hero_card(
-                    '/news',
-                    class="bg-gradient-to-r from-light-black to-yellow"
-                ) %}
-                    {{ hero_card.hero_card_one_line_content(
-                        'Новости',
-                        class="text-white"
                     ) }}
                 {% endcall %}
             </li>

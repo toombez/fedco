@@ -1,22 +1,19 @@
 {% import 'components/section.j2' as section %}
+{% import 'components/typography.j2' as typography %}
 
 {% macro theme_list(heading, is_ordered = false) %}
     <div>
-        <span
-            class="text-white font-regular text-base mb-3"
-        >
-            {{ heading }}:
-        </span>
+        {{ typography.raleway_body(heading|string + ':', class = "text-white mb-3") }}
 
         {% if is_ordered %}
-            <ol>
-                {{ caller() }}
-            </ol>
+            {% set list = 'ol' %}
         {% else %}
-            <ul>
-                {{ caller() }}
-            </ul>
+            {% set list = 'ul' %}
         {% endif %}
+
+            <{{ list }} class="text-white list-decimal list-inside">
+                {{ caller() }}
+            </{{ list }}>
     </div>
 {% endmacro %}
 
@@ -27,9 +24,11 @@
                 <a
                     href="{{material['href']}}"
                     target="_blank"
-                    class="text-white font-regular text-base underline"
                 >
-                    {{ material['label'] }}
+                    {{ typography.raleway_body(
+                        material['label'],
+                        class = "underline"
+                    ) }}
                 </a>
             </li>
         {% endfor %}
@@ -37,12 +36,10 @@
 {% endmacro %}
 
 {% macro theme_skills_list(skills) %}
-    {% call theme_list('чему научится') %}
+    {% call theme_list('чему научится', true) %}
         {% for skill in skills %}
-            <li
-                class="text-white font-regular text-base"
-            >
-                {{ skill }}
+            <li>
+                {{ typography.raleway_body(skill) }}
             </li>
         {% endfor %}
     {% endcall %}
@@ -50,25 +47,16 @@
 
 {% macro theme(name, image, skills, materials) %}
     <article
-        class="rounded-3xl overflow-hidden relative z-0"
+        class="bg-no-repeat bg-left bg-cover rounded-3xl overflow-hidden"
+        style="background-image: url({{ image }});"
     >
-        <img
-            class="object-cover min-h-full w-1/2 absolute left-0 top-0 z-10"
-            src={{image}}
-            alt={{name}}
-        >
-
         <div
-            class="grid grid-cols-5 p-6 bg-gradient-to-r from-transparent via-light-black to-green z-20 relative"
+            class="bg-gradient-to-b desktop:bg-gradient-to-r from-transparent via-light-black to-yellow p-3 desktop:p-8 pt-56 desktop:pt-3"
         >
             <div
-                class="col-start-3 col-end-6"
+                class="desktop:w-2/3 ml-auto"
             >
-                <h3
-                    class="text-white mb-4 font-headings text-3xl"
-                >
-                    {{ name }}
-                </h3>
+                {{ typography.montserrat_heading(name, 'h3', class = "text-white mb-2 desktop:mb-4 ") }}
 
                 <div
                     class="grid grid-cols-2"
@@ -82,13 +70,10 @@
 {% endmacro %}
 
 
-{% call section.section('Образовательные модули') %}
+{% call section.section('Образовательные модули', 'modules') %}
     <div>
-        <h3
-            class="mb-4 text-black font-regular text-3xl"
-        >
-            Модуль 1
-        </h3>
+        {{ typography.montserrat_sub_heading('Модуль 1', 'h3', class = "mb-4 text-black") }}
+
         <ul
             class="flex flex-col gap-2"
         >

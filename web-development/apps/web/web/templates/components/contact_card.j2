@@ -1,25 +1,22 @@
-{% import './components/icon.j2' as icon %}
+{% import 'components/icon.j2' as icon %}
+{% import 'components/typography.j2' as typography %}
 
 {% macro contact_card(service, label, href, color) %}
     <a
         href="{{ href }}"
-        class="flex items-end flex-col gap-10 rounded-2xl p-4"
+        class="flex items-end desktop:flex-col gap-10 rounded-2xl p-4"
         target="_blank"
         style="background-color: {{ color }}"
     >
         <div
             class="p-3 bg-white w-fit rounded-full"
+            style="color: {{color}}"
         >
-            <div
-                style="color: {{color}};"
-            >
-                {{ icon.icon(service, class="w-6 h-6") }}
-            </div>
+            {{ icon.icon(service, class="w-6 h-6") }}
         </div>
-        <span
-            class="text-white text-2xl font-regular text-end"
-        >
-            {{ label }}
-        </span>
+        {{ typography.raleway_sub_heading(
+            label,
+            class = "text-white"
+        ) }}
     </a>
 {% endmacro %}

@@ -1,24 +1,19 @@
 {% import 'components/container.j2' as container %}
+{% import 'components/typography.j2' as typography %}
 
 {% macro section(heading, id="", class="", is_dark = false) %}
     {% set caller_content = caller() %}
-
-    {% if is_dark %}
-        {% set text_color = 'text-white' %}
-    {% else %}
-        {% set text_color = 'text-black' %}
-    {% endif %}
 
     <section
         class="{{ class }}"
         id="{{ id }}"
     >
-        {% call container.container() %}
-            <h2
-                class="mb-10 font-headings text-6xl {{ text_color }}"
-            >
-                {{ heading }}
-            </h2>
+        {% call container.section_container() %}
+            {{ typography.montserrat_heading(
+                heading,
+                'h2',
+                class = "text-black mb-6 desktop:mb-10"
+            ) }}
 
             {{ caller_content }}
         {% endcall %}

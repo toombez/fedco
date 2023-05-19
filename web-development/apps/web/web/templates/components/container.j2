@@ -1,7 +1,39 @@
-{% macro container() %}
+{% macro container(class = "") %}
     <div
-        class="container py-4"
+        class="container {{ class }}"
     >
         {{ caller() }}
     </div>
+{% endmacro %}
+
+{% macro section_container() %}
+    {% set caller_context = caller() %}
+
+    {% call container(class="px-2 py-4 desktop:px-4 desktop:py-8") %}
+        {{ caller_context }}
+    {% endcall %}
+{% endmacro %}
+
+{% macro header_container() %}
+    {% set caller_context = caller() %}
+
+    {% call container(class="py-3 desktop:py-6 px-2 desktop:px-4") %}
+        {{ caller_context }}
+    {% endcall %}
+{% endmacro %}
+
+{% macro hero_container() %}
+    {% set caller_context = caller() %}
+
+    {% call container(class="py-4 desktop:pt-8 desktop:pb-16 px-2 desktop:px-4") %}
+        {{ caller_context }}
+    {% endcall %}
+{% endmacro %}
+
+{% macro footer_container() %}
+    {% set caller_context = caller() %}
+
+    {% call container(class="pb-2 desktop:pb-4 pt-4 desktop:pt-8 desktop:py-6 px-2 desktop:px-4") %}
+        {{ caller_context }}
+    {% endcall %}
 {% endmacro %}

@@ -1,6 +1,13 @@
 function initDrawer() {
     const $drawer = document.querySelector('[data-drawer]')
     const $drawerToggle = document.querySelector('[data-drawer-toggle]')
+    const $drawerLinks = document.querySelectorAll('[data-drawer-link]')
+
+    $drawerLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            $drawer?.classList.add('hidden')
+        })
+    })
 
     if (!$drawer) {
         throw new Error('cannot find drawer')
@@ -31,4 +38,15 @@ function initDrawer() {
     }
 }
 
+function fixScrollPadding() {
+    const $header = document.querySelector('[data-header]') as HTMLElement
+    const $root = document.documentElement
+
+    const scrollPadding = `${$header.offsetHeight}px`
+
+    $root.style.setProperty('--scroll-padding', scrollPadding)
+}
+
+
 initDrawer()
+fixScrollPadding()

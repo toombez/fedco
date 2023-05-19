@@ -16,4 +16,4 @@ def news():
     return render_template('news.j2')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

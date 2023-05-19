@@ -5,9 +5,18 @@ export default {
     mode: 'jit',
     content: ["./web/templates/**/*.{html,htm,j2}"],
     theme: {
+        fontSize: {
+            md: '0.875rem',
+            '2md': '1rem',
+            lg: '1.5rem',
+            '2lg': '1.75rem',
+            xl: '2.25rem',
+            '2xl': '2.5rem',
+
+        },
         fontFamily: {
-            headings: ['Montserrat', ...defaultTheme.fontFamily.sans],
-            regular: ['Raleway', ...defaultTheme.fontFamily.mono],
+            montserrat: ['Montserrat', ...defaultTheme.fontFamily.sans],
+            raleway: ['Raleway', ...defaultTheme.fontFamily.mono],
         },
         colors: {
             transparent: 'transparent',
@@ -27,14 +36,12 @@ export default {
                 email: 'colors.yellow',
             },
         },
-        extend: {
-            container: {
-                center: true,
-                padding: '0.75rem',
-                screens: {
-                    'DEFAULT': '1024px',
-                }
-            }
+        screens: {
+            'mobile': '640px',
+            'desktop': '1024px',
+        },
+        container: {
+            center: true,
         },
     },
     plugins: [],

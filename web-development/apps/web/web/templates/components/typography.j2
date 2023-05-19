@@ -1,0 +1,63 @@
+{# Base macros #}
+{% macro base(text, tag = "span", class = "") %}
+    <{{ tag }}
+        class="{{ class }}"
+    >
+        {{ text }}
+    </{{ tag }}>
+{% endmacro %}
+
+{% macro heading(text, tag = 'span',  class = "") %}
+    {% set class = "text-xl desktop:text-2xl " + class %}
+
+    {{ base(text, tag, class) }}
+{% endmacro %}
+
+{% macro sub_heading(text, tag = 'span',  class = "") %}
+    {% set class = "text-lg desktop:text-2lg " + class %}
+
+    {{ base(text, tag, class) }}
+{% endmacro %}
+
+{% macro body(text, tag = 'span',  class = "") %}
+    {% set class = "text-md desktop:text-2md " + class %}
+
+    {{ base(text, tag, class) }}
+{% endmacro %}
+
+{# design typography macros #}
+{% macro montserrat_heading(text, tag = 'span', class = "") %}
+    {% set class = "font-montserrat " + class %}
+
+    {{ heading(text, tag, class) }}
+{% endmacro %}
+
+{% macro raleway_heading(text, tag = 'span', class = "") %}
+    {% set class = "font-raleway " + class %}
+
+    {{ heading(text, tag, class) }}
+{% endmacro %}
+
+{% macro montserrat_sub_heading(text, tag = 'span', class = "") %}
+    {% set class = "font-montserrat " + class %}
+
+    {{ sub_heading(text, tag, class) }}
+{% endmacro %}
+
+{% macro raleway_sub_heading(text, tag = 'span', class = "") %}
+    {% set class = "font-raleway " + class %}
+
+    {{ sub_heading(text, tag, class) }}
+{% endmacro %}
+
+{% macro montserrat_body(text, tag = 'span', class = "") %}
+    {% set class = "font-montserrat " + class %}
+
+    {{ body(text, tag, class) }}
+{% endmacro %}
+
+{% macro raleway_body(text, tag = 'span', class = "") %}
+    {% set class = "font-raleway " + class %}
+
+    {{ body(text, tag, class) }}
+{% endmacro %}

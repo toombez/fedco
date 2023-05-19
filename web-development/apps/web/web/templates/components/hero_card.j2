@@ -1,28 +1,30 @@
+{% import 'components/typography.j2' as typography %}
+
 {% macro hero_card(href, class="") %}
     <a
-        class="block p-6 rounded-3xl h-full {{ class }}"
+        class="block p-4 rounded-3xl h-full {{ class }}"
         href="{{ href }}"
     >
         {{ caller() }}
     </a>
 {% endmacro %}
 
-{% macro hero_card_one_line_content(heading, class="") %}
-    <span class="font-regular text-5xl {{ class }}">
-        <article>
-            {{ heading }}
-        </article>
-    </span>
+{% macro hero_card_one_line_content(heading, class = "") %}
+    <article class="{{ class }}">
+        {{ typography.montserrat_heading(heading) }}
+    </article>
 {% endmacro %}
 
-{% macro hero_card_two_line_content(heading, subheading) %}
-    <article class="flex flex-col justify-between h-full">
-        <span class="text-white inline-block px-4 py-2 border rounded-3xl w-fit font-regular text-5xl">
-            {{ heading }}
-        </span>
+{% macro hero_card_two_line_content(heading, subheading, class = "") %}
+    <article class="flex flex-col justify-between h-full {{ class }}">
+        {{ typography.montserrat_heading(
+            heading,
+            class="text-white px-4 py-3 border rounded-3xl",
+        ) }}
 
-        <span class="self-end text-white text-end font-regular text-2xl">
-            {{ subheading }}
-        </span>
+        {{ typography.montserrat_sub_heading(
+            subheading,
+            class="text-white text-end",
+        ) }}
     </article>
 {% endmacro %}

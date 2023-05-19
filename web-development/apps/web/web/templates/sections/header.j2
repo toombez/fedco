@@ -1,30 +1,32 @@
-{% import './components/container.j2' as container %}
-{% import './components/icon.j2' as icon %}
+{% import 'components/icon.j2' as icon %}
+{% import 'components/container.j2' as container %}
+{% import 'components/typography.j2' as typography %}
 
 {% set title = {
-    'href': '/#',
+    'href': '#',
     'label': 'IT-квантум (web-разработка)',
 } %}
 
 <header
     class="sticky top-0 z-40 group bg-gradient-to-r from-black to-light-black"
     id="header"
+    data-header
 >
-    {% call container.container() %}
+    {% call container.header_container() %}
         <div
             class="flex justify-between"
         >
             <a
                 href="{{ title['href'] }}"
-                class="text-white font-headings text-5xl"
+                class="text-white"
             >
-                {{ title['label'] }}
+                {{ typography.montserrat_heading(title['label']) }}
             </a>
 
             <button
                 data-drawer-toggle
             >
-                {{ icon.icon('menu', class="text-white w-6") }}
+                {{ icon.icon('menu', class="text-white w-8") }}
             </button>
         </div>
     {% endcall %}
