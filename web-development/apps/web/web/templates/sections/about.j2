@@ -1,73 +1,65 @@
-{% import './components/section.j2' as section %}
+{% import 'components/section.j2' as section %}
+{% import 'components/typography.j2' as typography %}
+
+{% macro about_card(heading, class = "") %}
+    <article
+        class="desktop:aspect-square rounded-3xl p-3 {{ class }}"
+    >
+        {{ typography.montserrat_sub_heading(
+            heading,
+            'h3',
+            class = 'mb-4 desktop:mb-6'
+        ) }}
+
+        {{ caller() }}
+    </article>
+{% endmacro %}
 
 {% macro about_skills_card(skills = []) %}
-    <article
-        class="aspect-square border border-green rounded-3xl p-3"
-    >
-        <h3
-            class="mb-6 text-green font-regular text-4xl"4
-        >
-            Чему научатся
-        </h3>
-
+    {% call about_card(
+        'Чему научатся',
+        class = "text-green border border-green ",
+    ) %}
         <ol
             class="list-decimal flex flex-col gap-1"
         >
             {% for skill in skills %}
-                <li
-                    class="font-regular text-xl text-green border border-green list-inside w-fit px-3 rounded-3xl"
-                >
-                    {{ skill }}
-                </li>
+                {{ typography.raleway_body(
+                    skill,
+                    'li',
+                    class="border border-green list-inside w-fit px-2 desktop:px-3 py-1 rounded-3xl"
+                ) }}
             {% endfor %}
         </ol>
-    </article>
+    {% endcall %}
 {% endmacro %}
 
 {% macro about_description_card(description = '') %}
-    <article
-        class="aspect-square bg-yellow rounded-3xl p-3"
-    >
-        <h3
-            class="mb-5 font-regular text-4xl text-black"
-        >
-            Web-разработка
-        </h3>
-
-        <span
-            class="text text-black font-regular text-xl"
-        >
-            {{ description }}
-        </span>
-    </article>
+    {% call about_card(
+        'Web-разработка',
+        class = "bg-yellow text-black ",
+    ) %}
+        {{ typography.raleway_body(description) }}
+    {% endcall %}
 {% endmacro %}
 
 {% macro about_projects_card(projects = []) %}
-    <article
-        class="aspect-square bg-gradient-to-tr from-light-black to-green rounded-3xl p-3"
-    >
-        <h3
-            class="text-white mb-5 text-4xl font-regular"
-        >
-            Проекты
-        </h3>
-
+    {% call about_card(
+        'Проекты',
+        class = "bg-gradient-to-tr from-light-black to-green text-white ",
+    ) %}
         <ol
             class="list-decimal list-inside"
         >
             {% for project in projects %}
-                <li
-                    class="font-regular text-xl text-white"
-                >
-                    {{ project }}
-                </li>
+                {{ typography.raleway_body(project, 'li') }}
             {% endfor %}
         </ol>
-    </article>
+    {% endcall %}
 {% endmacro %}
 
 {% call section.section('О направлении', 'about') %}
-    <div class="grid grid-cols-3 gap-[1px]">
+    <div class="grid desktop:grid-cols-3 gap-1  desktop:gap-[1px]">
         {{ about_skills_card([
             'Основы html css и js',
             'Frontend разработке',
