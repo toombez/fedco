@@ -42,10 +42,6 @@ export default {
         },
         container: {
             center: true,
-            padding: {
-                mobile: '0.5rem',
-                desktop: '0.75rem',
-            },
         },
     },
     plugins: [],
