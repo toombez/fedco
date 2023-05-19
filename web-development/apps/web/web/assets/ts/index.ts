@@ -38,4 +38,15 @@ function initDrawer() {
     }
 }
 
+function fixScrollPadding() {
+    const $header = document.querySelector('[data-header]') as HTMLElement
+    const $root = document.documentElement
+
+    const scrollPadding = `${$header.offsetHeight}px`
+
+    $root.style.setProperty('--scroll-padding', scrollPadding)
+}
+
+
 initDrawer()
+fixScrollPadding()

@@ -6,3 +6,7 @@ svg {
     max-width: 100%;
     aspect-ratio: 1;
 }
+
+:root {
+    scroll-padding-top: var(--scroll-padding);
+}
