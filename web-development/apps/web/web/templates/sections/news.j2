@@ -1,4 +1,5 @@
 {% import 'components/section.j2' as section %}
+{% import 'components/typography.j2' as typography %}
 
 {% set news = [
     {
@@ -12,14 +13,15 @@
 {% for _ in range(4) %}
     {% call section.section(news[0]['heading']) %}
         <div
-            class="clear-both text-2xl font-regular"
+            class="desktop:clear-both"
         >
             <img
-                class="float-right w-1/2 rounded-3xl"
+                class="desktop:float-right desktop:w-1/2 rounded-3xl"
                 src="{{ news[0]['image'] }}"
                 alt="{{ news[0]['heading'] }}"
             >
-            {{ news[0]['content'] }}
+
+            {{ typography.body(news[0]['content']) }}
         </div>
     {% endcall %}
 {% endfor %}
