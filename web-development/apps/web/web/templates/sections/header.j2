@@ -1,5 +1,6 @@
-{% import './components/container.j2' as container %}
-{% import './components/icon.j2' as icon %}
+{% import 'components/container.j2' as container %}
+{% import 'components/icon.j2' as icon %}
+{% import 'components/typography.j2' as typography %}
 
 {% set title = {
     'href': '/#',
@@ -16,15 +17,15 @@
         >
             <a
                 href="{{ title['href'] }}"
-                class="text-white font-headings text-5xl"
+                class="text-white"
             >
-                {{ title['label'] }}
+                {{ typography.montserrat_heading(title['label']) }}
             </a>
 
             <button
                 data-drawer-toggle
             >
-                {{ icon.icon('menu', class="text-white w-6") }}
+                {{ icon.icon('menu', class="text-white w-8") }}
             </button>
         </div>
     {% endcall %}
