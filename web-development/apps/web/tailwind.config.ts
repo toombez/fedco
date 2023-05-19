@@ -6,12 +6,12 @@ export default {
     content: ["./web/templates/**/*.{html,htm,j2}"],
     theme: {
         fontSize: {
-            md: '1rem',
-            '2md': '1.25rem',
-            lg: '2rem',
-            '2lg': '2.25rem',
-            xl: '2.625rem',
-            '2xl': '3.5rem',
+            md: '0.875rem',
+            '2md': '1rem',
+            lg: '1.5rem',
+            '2lg': '1.75rem',
+            xl: '2.25rem',
+            '2xl': '2.5rem',
 
         },
         fontFamily: {
