@@ -22,11 +22,11 @@
         {% for material in materials %}
             <li>
                 <a
-                    href="{{material['href']}}"
+                    href="{{material[1]}}"
                     target="_blank"
                 >
                     {{ typography.raleway_body(
-                        material['label'],
+                        material[0],
                         class = "underline"
                     ) }}
                 </a>
@@ -69,46 +69,32 @@
     </article>
 {% endmacro %}
 
-
 {% call section.section('Образовательные модули', 'modules') %}
     <div>
-        {{ typography.montserrat_sub_heading('Модуль 1', 'h3', class = "mb-4 text-black") }}
+        {% set modules = fetch_modules() %}
 
-        <ul
-            class="flex flex-col gap-2"
-        >
-            <li>
-                {{ theme(
-                    'Тема 1',
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4swcYshaYiLmiCWkOp4RWihWzsZgLjVoS7tslRYWA&s',
-                    [
-                        'навык 1',
-                        'навык 2',
-                        'навык 3',
-                    ],
-                    [
-                        { 'label': 'материал 1', 'href': 'lorem' },
-                        { 'label': 'материал 2', 'href': 'lorem' },
-                        { 'label': 'материал 3', 'href': 'lorem' },
-                    ]
-                ) }}
-            </li>
-            <li>
-                {{ theme(
-                    'Тема 1',
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4swcYshaYiLmiCWkOp4RWihWzsZgLjVoS7tslRYWA&s',
-                    [
-                        'навык 1',
-                        'навык 2',
-                        'навык 3',
-                    ],
-                    [
-                        { 'label': 'материал 1', 'href': 'lorem' },
-                        { 'label': 'материал 2', 'href': 'lorem' },
-                        { 'label': 'материал 3', 'href': 'lorem' },
-                    ]
-                ) }}
-            </li>
-        </ul>
+        {% for module in modules %}
+
+            {% set module_name, themes = module %}
+
+            {{ typography.montserrat_sub_heading(module_name, 'h3', class = "mb-4 text-black") }}
+
+            <ul
+                class="flex flex-col gap-2"
+            >
+                {% for _theme in themes %}
+                    {% set theme_name, image_url, skills, materials = _theme %}
+
+                    <li>
+                        {{ theme(
+                            theme_name,
+                            image_url,
+                            skills,
+                            materials
+                        ) }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
     </div>
 {% endcall %}

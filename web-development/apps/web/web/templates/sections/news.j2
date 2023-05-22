@@ -1,27 +1,22 @@
 {% import 'components/section.j2' as section %}
 {% import 'components/typography.j2' as typography %}
 
-{% set news = [
-    {
-        'heading': 'lorem',
-        'content': 'Lorem ipsum dolor sit amet consectetur. Urna pharetra libero nunc id sed pulvinar ipsum porttitor at. Ipsum ultricies orci velit senectus a gravida tellus pellentesque. Lectus leo curabitur odio adipiscing libero. Mauris vestibulum non porta eu pellentesque. Justo facilisis egestas ac eget. Pulvinar aliquam viverra nulla pellentesque tortor etiam lorem. Arcu sed suspendisse risus eu magnis eu urna fermentum arcu. Nunc ac tellus pretium mauris urna. Ullamcorper dignissim odio eu malesuada diam morbi morbi curabitur. Blandit morbi sed elit turpis nulla lectus libero a odio. Senectus ultricies sagittis pharetra nullam scelerisque a gravida aliquam vitae. Ullamcorper imperdiet felis at lorem mattis quam quis. Amet condimentum placerat tempor turpis eget elit ligula. Nullam nunc vitae nulla pharetra. Odio rhoncus nullam at vitae auctor egestas arcu tellus. Risus nam iaculis semper pulvinar sed. Turpis suspendisse odio elementum vitae vitae ultrices risus risus tempus. Ut quam nibh pellentesque odio tincidunt viverra pellentesque posuere.',
-        'image': 'https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80',
-    }
-] %}
+{% set news = fetch_news() %}
 
+{% for _news in news %}
+    {% set heading, content, image_url = _news %}
 
-{% for _ in range(4) %}
-    {% call section.section(news[0]['heading']) %}
+    {% call section.section(heading) %}
         <div
             class="desktop:clear-both"
         >
             <img
                 class="desktop:float-right desktop:w-1/2 rounded-3xl"
-                src="{{ news[0]['image'] }}"
-                alt="{{ news[0]['heading'] }}"
+                src="{{ image_url }}"
+                alt="{{ heading }}"
             >
 
-            {{ typography.body(news[0]['content']) }}
+            {{ typography.body(content) }}
         </div>
     {% endcall %}
 {% endfor %}

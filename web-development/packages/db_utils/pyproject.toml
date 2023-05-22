@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "web"
+name = "db-utils"
 version = "0.1.0"
 description = ""
 authors = ["Timur <timurtokaev.toombez@gmail.com>"]
 readme = "README.md"
+packages = [{include = "db_utils"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-Flask = "^2.3.2"
-db_utils = { path = "../../packages/db_utils" }
+models = { path = "../models" }
 
 [build-system]
 requires = ["poetry-core"]

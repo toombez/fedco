@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "seed:database": "poetry run python -m models"
   },
   "devDependencies": {
     "turbo": "^1.9.3"

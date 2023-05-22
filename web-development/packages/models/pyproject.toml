@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "web"
+name = "models"
 version = "0.1.0"
 description = ""
 authors = ["Timur <timurtokaev.toombez@gmail.com>"]
@@ -7,8 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-Flask = "^2.3.2"
-db_utils = { path = "../../packages/db_utils" }
+peewee = "^3.16.2"
+db = { path = "../db" }
 
 [build-system]
 requires = ["poetry-core"]
