@@ -363,6 +363,23 @@ type = "directory"
 url = "packages/db"
 
 [[package]]
+name = "db-utils"
+version = "0.1.0"
+description = ""
+category = "main"
+optional = false
+python-versions = "^3.11"
+files = []
+develop = false
+
+[package.dependencies]
+models = {path = "../models"}
+
+[package.source]
+type = "directory"
+url = "packages/db_utils"
+
+[[package]]
 name = "flask"
 version = "2.3.2"
 description = "A simple framework for building complex web applications."
@@ -734,6 +751,7 @@ files = []
 develop = true
 
 [package.dependencies]
+db_utils = {path = "../../packages/db_utils"}
 Flask = "^2.3.2"
 
 [package.source]
