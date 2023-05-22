@@ -8,6 +8,11 @@ class Model(ABC):
         """
         Create model from python `sqlite3` `cursor.fetchone()` method result
 
+        Parameters
+        ----------
+            sql: Tuple[any, ...]
+                sql result
+
         Returns
         -------
             Model
