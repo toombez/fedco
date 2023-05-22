@@ -346,6 +346,23 @@ files = [
 ]
 
 [[package]]
+name = "db"
+version = "0.1.0"
+description = ""
+category = "main"
+optional = false
+python-versions = "^3.11"
+files = []
+develop = false
+
+[package.dependencies]
+peewee = "^3.16.2"
+
+[package.source]
+type = "directory"
+url = "packages/db"
+
+[[package]]
 name = "flask"
 version = "2.3.2"
 description = "A simple framework for building complex web applications."
@@ -567,6 +584,24 @@ files = [
 ]
 
 [[package]]
+name = "models"
+version = "0.1.0"
+description = ""
+category = "main"
+optional = false
+python-versions = "^3.11"
+files = []
+develop = true
+
+[package.dependencies]
+db = {path = "../db"}
+peewee = "^3.16.2"
+
+[package.source]
+type = "directory"
+url = "packages/models"
+
+[[package]]
 name = "multidict"
 version = "6.0.4"
 description = "multidict implementation"
@@ -648,6 +683,17 @@ files = [
     {file = "multidict-6.0.4-cp39-cp39-win32.whl", hash = "sha256:27c523fbfbdfd19c6867af7346332b62b586eed663887392cff78d614f9ec313"},
     {file = "multidict-6.0.4-cp39-cp39-win_amd64.whl", hash = "sha256:33029f5734336aa0d4c0384525da0387ef89148dc7191aae00ca5fb23d7aafc2"},
     {file = "multidict-6.0.4.tar.gz", hash = "sha256:3666906492efb76453c0e7b97f2cf459b0682e7402c0489a95484965dbc1da49"},
+]
+
+[[package]]
+name = "peewee"
+version = "3.16.2"
+description = "a little orm"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "peewee-3.16.2.tar.gz", hash = "sha256:10769981198c7311f84a0ca8db892fa213303a8eb1305deb795a71e7bd606a91"},
 ]
 
 [[package]]
@@ -803,4 +849,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "5269080713a6592b40807630469eae4e6a462a6ff5c582c19d598ab61802048a"
+content-hash = "f98ae236e5e7ee81852b73913b44db5ced0f22e6e97bdad763ecba855e39cf60"
