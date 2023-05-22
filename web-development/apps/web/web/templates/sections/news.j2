@@ -1,20 +1,22 @@
 {% import 'components/section.j2' as section %}
 {% import 'components/typography.j2' as typography %}
 
-{% set news = News.select() %}
+{% set news = fetch_news() %}
 
 {% for _news in news %}
-    {% call section.section(_news.heading) %}
+    {% set heading, content, image_url = _news %}
+
+    {% call section.section(heading) %}
         <div
             class="desktop:clear-both"
         >
             <img
                 class="desktop:float-right desktop:w-1/2 rounded-3xl"
-                src="{{ _news.image_url }}"
-                alt="{{ _news.heading }}"
+                src="{{ image_url }}"
+                alt="{{ heading }}"
             >
 
-            {{ typography.body(_news.content) }}
+            {{ typography.body(content) }}
         </div>
     {% endcall %}
 {% endfor %}
