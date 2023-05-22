@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from datetime import datetime
-from models import News, Module, Theme, ThemeMaterial, ThemeSkill
+from db_utils import fetch_news, fetch_modules
 
 app = Flask(__name__)
 
@@ -11,11 +11,8 @@ def inject_now():
 @app.context_processor
 def inject_models():
     return {
-        'News': News,
-        'Module': Module,
-        'Theme': Theme,
-        'ThemeMaterial': ThemeMaterial,
-        'ThemeSkill': ThemeSkill,
+        'fetch_news': fetch_news,
+        'fetch_modules': fetch_modules,
     }
 
 @app.route('/')
