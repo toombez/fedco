@@ -14,6 +14,7 @@ def fetch_modules():
             tuple(map(
                 lambda t: (
                     t.name,
+                    t.image_url,
                     tuple(map(
                         lambda s: s.label,
                         ThemeSkill.select().where(ThemeSkill.theme_id == t.id)

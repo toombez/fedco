@@ -33,6 +33,7 @@ with db:
             theme_id = Theme.create(
                 name = f'Тема {j + 1}',
                 description = 'Описание темы 1',
+                image_url = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4swcYshaYiLmiCWkOp4RWihWzsZgLjVoS7tslRYWA&s',
                 module_id = module_id
             )
 

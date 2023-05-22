@@ -83,12 +83,12 @@
                 class="flex flex-col gap-2"
             >
                 {% for _theme in themes %}
-                    {% set theme_name, skills, materials = _theme %}
+                    {% set theme_name, image_url, skills, materials = _theme %}
 
                     <li>
                         {{ theme(
                             theme_name,
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4swcYshaYiLmiCWkOp4RWihWzsZgLjVoS7tslRYWA&s',
+                            image_url,
                             skills,
                             materials
                         ) }}
