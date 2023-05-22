@@ -1,7 +1,7 @@
 from models.BaseModel import BaseModel
-from models.Module import Module
+from models.Theme import Theme
 from peewee import CharField, ForeignKeyField
 
-class ModuleSkill(BaseModel):
+class ThemeSkill(BaseModel):
     label = CharField()
-    module_id = ForeignKeyField(Module)
+    theme_id = ForeignKeyField(Theme)
