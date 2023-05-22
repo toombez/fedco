@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "db-utils"
+version = "0.1.0"
+description = ""
+authors = ["Timur <timurtokaev.toombez@gmail.com>"]
+readme = "README.md"
+packages = [{include = "db_utils"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+models = { path = "../models" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
