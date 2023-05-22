@@ -1,11 +1,22 @@
 from flask import Flask, render_template
 from datetime import datetime
+from models import News, Module, Theme, ThemeMaterial, ThemeSkill
 
 app = Flask(__name__)
 
 @app.context_processor
 def inject_now():
     return {'now': datetime.utcnow()}
+
+@app.context_processor
+def inject_models():
+    return {
+        'News': News,
+        'Module': Module,
+        'Theme': Theme,
+        'ThemeMaterial': ThemeMaterial,
+        'ThemeSkill': ThemeSkill,
+    }
 
 @app.route('/')
 def index():
